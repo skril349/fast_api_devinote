@@ -6,7 +6,9 @@ engine = create_engine(settings.DATABASE_URL, echo=False, connect_args={"check_s
 
 
 def init_db() -> None:
-    SQLModel.metadata.create_all(engine) # dev
+    if settings.ENVIRONMENT == "development":
+        SQLModel.metadata.create_all(engine) # dev
+    pass
     
 def get_session() -> Iterator[Session]:
     with Session(engine) as session:

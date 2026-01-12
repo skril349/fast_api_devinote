@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     POSTGRES_PASSWORD: str = Field(default="devinote_password", env="POSTGRES_PASSWORD")
     POSTGRES_HOST: str = Field(default="db", env="POSTGRES_HOST")
     POSTGRES_PORT: int = Field(default=5432, env="POSTGRES_PORT")
+    ENVIRONMENT: str = Field(default="development", env="ENVIRONMENT")
     
 
     class Config:
